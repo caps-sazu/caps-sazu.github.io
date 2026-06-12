@@ -37,7 +37,7 @@ CAPS (Comprehensive Academic Portal System) is a feature-rich mobile application
 
 | Dashboard | Results | Grades | Search |
 |-----------|---------|--------|--------|
-| ![Dashboard](https://caps-sazu.github.io/screenshort_dashboard.jpg) | ![Results](https://caps-sazu.github.io/Screenshot_results.jpg) | ![Grades](https://caps-sazu.github.io/Screenshot_grades.jpg) | ![Search](https://caps-sazu.github.io/screenshot_search.jpg) |
+| ![Dashboard](https://caps-sazu.github.io/screenshort_dashboard.jpg) | ![Splash screen](https://caps-sazu.github.io/Screenshot_results.jpg) | ![Quick Access](https://caps-sazu.github.io/Screenshot_grades.jpg) | ![Login](https://caps-sazu.github.io/screenshot_search.jpg) |
 
 ---
 
