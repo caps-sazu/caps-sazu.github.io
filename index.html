@@ -21,6 +21,14 @@
             overflow-x: hidden;
         }
 
+        /* Desktop Wrapper - Centers content on large screens */
+        .desktop-wrapper {
+            max-width: 1600px;
+            margin: 0 auto;
+            background: inherit;
+            position: relative;
+        }
+
         /* Animated Background */
         .bg-animation {
             position: fixed;
@@ -49,7 +57,7 @@
         }
 
         /* Custom Scrollbar */
-        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar { width: 10px; }
         ::-webkit-scrollbar-track { background: #1E293B; border-radius: 10px; }
         ::-webkit-scrollbar-thumb { background: linear-gradient(135deg, #3B82F6, #8B5CF6); border-radius: 10px; }
         ::-webkit-scrollbar-thumb:hover { background: #3B82F6; }
@@ -58,6 +66,8 @@
         .navbar {
             position: fixed;
             top: 0;
+            left: 0;
+            right: 0;
             width: 100%;
             padding: 1rem 8%;
             background: rgba(10, 15, 28, 0.95);
@@ -70,10 +80,30 @@
             transition: all 0.4s ease;
         }
 
+        /* Desktop navbar centering */
+        @media (min-width: 1400px) {
+            .navbar {
+                max-width: 1600px;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 1600px;
+                padding: 1rem 2rem;
+            }
+            .navbar.scrolled {
+                max-width: 1600px;
+            }
+        }
+
         .navbar.scrolled {
             padding: 0.7rem 8%;
             background: rgba(10, 15, 28, 0.98);
             box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        @media (min-width: 1400px) {
+            .navbar.scrolled {
+                padding: 0.7rem 2rem;
+            }
         }
 
         .logo {
@@ -154,7 +184,7 @@
             box-shadow: 0 10px 25px rgba(59, 130, 246, 0.4);
         }
 
-        /* Hero Section */
+        /* Hero Section - Desktop Optimized */
         .hero {
             min-height: 100vh;
             display: flex;
@@ -164,6 +194,21 @@
             gap: 4rem;
             flex-wrap: wrap;
             position: relative;
+        }
+
+        @media (min-width: 1024px) {
+            .hero {
+                max-width: 1400px;
+                margin: 0 auto;
+                padding: 0 4rem;
+                gap: 6rem;
+            }
+        }
+
+        @media (min-width: 1400px) {
+            .hero {
+                padding: 0 2rem;
+            }
         }
 
         .hero-content {
@@ -196,6 +241,12 @@
             margin-bottom: 1.5rem;
         }
 
+        @media (min-width: 1024px) {
+            .hero-content h1 {
+                font-size: 4.5rem;
+            }
+        }
+
         .gradient-text {
             background: linear-gradient(135deg, #3B82F6, #8B5CF6, #EC4899);
             -webkit-background-clip: text;
@@ -214,6 +265,13 @@
             color: #94A3B8;
             margin-bottom: 2rem;
             max-width: 500px;
+        }
+
+        @media (min-width: 1024px) {
+            .hero-description {
+                font-size: 1.2rem;
+                max-width: 550px;
+            }
         }
 
         .download-buttons {
@@ -288,6 +346,12 @@
             margin-top: 2rem;
         }
 
+        @media (min-width: 1024px) {
+            .hero-stats {
+                gap: 3rem;
+            }
+        }
+
         .stat {
             text-align: center;
             animation: fadeInUp 0.6s ease;
@@ -297,6 +361,12 @@
             font-size: 2rem;
             font-weight: 800;
             color: #3B82F6;
+        }
+
+        @media (min-width: 1024px) {
+            .stat-number {
+                font-size: 2.2rem;
+            }
         }
 
         .stat-label {
@@ -320,6 +390,12 @@
             position: relative;
             width: 300px;
             margin: 0 auto;
+        }
+
+        @media (min-width: 1024px) {
+            .phone-mockup {
+                width: 350px;
+            }
         }
 
         .phone-screen {
@@ -352,11 +428,23 @@
         @keyframes float2 { 0%,100% { transform: translateX(0) rotate(0deg); } 50% { transform: translateX(-15px) rotate(-10deg); } }
         @keyframes float3 { 0%,100% { transform: translateY(0) scale(1); } 50% { transform: translateY(-10px) scale(1.1); } }
 
-        /* Features Section */
+        /* Features Section - Desktop Grid */
         .features {
             padding: 6rem 8%;
             background: rgba(15, 23, 42, 0.4);
             backdrop-filter: blur(5px);
+        }
+
+        @media (min-width: 1024px) {
+            .features {
+                padding: 6rem 4rem;
+            }
+        }
+
+        @media (min-width: 1400px) {
+            .features {
+                padding: 6rem 2rem;
+            }
         }
 
         .section-title {
@@ -364,6 +452,12 @@
             font-size: 2.8rem;
             font-weight: 800;
             margin-bottom: 1rem;
+        }
+
+        @media (min-width: 768px) {
+            .section-title {
+                font-size: 3rem;
+            }
         }
 
         .section-subtitle {
@@ -375,8 +469,22 @@
 
         .features-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            grid-template-columns: 1fr;
             gap: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        @media (min-width: 768px) {
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .features-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
         }
 
         .feature-card {
@@ -428,13 +536,19 @@
             line-height: 1.5;
         }
 
-        /* Admin Card */
+        /* Admin Card - Desktop */
         .admin-section {
             padding: 4rem 8%;
         }
 
+        @media (min-width: 1024px) {
+            .admin-section {
+                padding: 4rem 4rem;
+            }
+        }
+
         .admin-card {
-            max-width: 400px;
+            max-width: 450px;
             margin: 0 auto;
             background: linear-gradient(135deg, #1E293B, #0F172A);
             border-radius: 32px;
@@ -442,6 +556,13 @@
             text-align: center;
             border: 1px solid rgba(59, 130, 246, 0.3);
             transition: all 0.4s;
+        }
+
+        @media (min-width: 1024px) {
+            .admin-card {
+                max-width: 500px;
+                padding: 2.5rem;
+            }
         }
 
         .admin-card:hover {
@@ -466,11 +587,6 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-        }
-
-        .admin-avatar .default-avatar {
-            font-size: 55px;
-            color: white;
         }
 
         .admin-name {
@@ -520,27 +636,37 @@
             transform: translateY(-3px);
         }
 
-        /* Screenshots Section */
+        /* Screenshots Section - Desktop Grid */
         .screenshots {
             padding: 4rem 8%;
         }
 
-        .screenshot-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 2rem;
-            margin-top: 3rem;
+        @media (min-width: 1024px) {
+            .screenshots {
+                padding: 4rem 4rem;
+            }
         }
 
-        @media (max-width: 1024px) {
+        .screenshot-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            margin-top: 3rem;
+            max-width: 1400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        @media (min-width: 640px) {
             .screenshot-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
         }
 
-        @media (max-width: 640px) {
+        @media (min-width: 1024px) {
             .screenshot-grid {
-                grid-template-columns: 1fr;
+                grid-template-columns: repeat(4, 1fr);
+                gap: 2rem;
             }
         }
 
@@ -562,7 +688,7 @@
 
         .screenshot-img {
             width: 100%;
-            height: 180px;
+            height: 200px;
             background: #0F172A;
             border-radius: 20px;
             display: flex;
@@ -572,14 +698,16 @@
             overflow: hidden;
         }
 
+        @media (min-width: 1024px) {
+            .screenshot-img {
+                height: 220px;
+            }
+        }
+
         .screenshot-img img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-        }
-
-        .screenshot-img .placeholder {
-            font-size: 3rem;
         }
 
         .screenshot-card h4 {
@@ -592,17 +720,38 @@
             color: #94A3B8;
         }
 
-        /* Guide Section */
+        /* Guide Section - Desktop Grid */
         .guide-section {
             padding: 6rem 8%;
             background: rgba(15, 23, 42, 0.4);
         }
 
+        @media (min-width: 1024px) {
+            .guide-section {
+                padding: 6rem 4rem;
+            }
+        }
+
         .guide-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: 1fr;
             gap: 2rem;
             margin-top: 3rem;
+            max-width: 1400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        @media (min-width: 768px) {
+            .guide-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .guide-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
         }
 
         .guide-card {
@@ -698,9 +847,21 @@
             z-index: 1;
         }
 
+        @media (min-width: 768px) {
+            .download-card {
+                max-width: 550px;
+            }
+        }
+
         .download-card h2 {
-            font-size: 2.2rem;
+            font-size: 2rem;
             margin-bottom: 1rem;
+        }
+
+        @media (min-width: 768px) {
+            .download-card h2 {
+                font-size: 2.2rem;
+            }
         }
 
         .download-info {
@@ -759,6 +920,20 @@
             gap: 2rem;
         }
 
+        @media (min-width: 1024px) {
+            .footer {
+                max-width: 1400px;
+                margin: 0 auto;
+                padding: 3rem 4rem;
+            }
+        }
+
+        @media (min-width: 1400px) {
+            .footer {
+                padding: 3rem 2rem;
+            }
+        }
+
         .footer-links {
             display: flex;
             gap: 2rem;
@@ -805,22 +980,6 @@
             font-size: 0.8rem;
         }
 
-        /* Responsive */
-        @media (max-width: 768px) {
-            .navbar { padding: 1rem 5%; }
-            .nav-links { display: none; }
-            .hero { flex-direction: column; text-align: center; padding-top: 100px; }
-            .hero-content h1 { font-size: 2.5rem; }
-            .download-buttons { justify-content: center; }
-            .hero-stats { justify-content: center; }
-            .section-title { font-size: 2rem; }
-            .download-card { padding: 2rem; margin: 0 1rem; }
-            .footer { flex-direction: column; text-align: center; }
-            .footer-links { justify-content: center; }
-            .social-icons { justify-content: center; }
-            .screenshot-grid { grid-template-columns: 1fr; }
-        }
-
         /* Loading Animation */
         .loading {
             position: fixed;
@@ -854,6 +1013,21 @@
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
         }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .navbar { padding: 1rem 5%; }
+            .nav-links { display: none; }
+            .hero { flex-direction: column; text-align: center; padding-top: 100px; }
+            .hero-content h1 { font-size: 2.5rem; }
+            .download-buttons { justify-content: center; }
+            .hero-stats { justify-content: center; }
+            .section-title { font-size: 2rem; }
+            .download-card { padding: 2rem; margin: 0 1rem; }
+            .footer { flex-direction: column; text-align: center; }
+            .footer-links { justify-content: center; }
+            .social-icons { justify-content: center; }
+        }
     </style>
 </head>
 <body>
@@ -870,307 +1044,305 @@
         <div class="circle circle3"></div>
     </div>
 
-    <!-- Navigation -->
-    <nav class="navbar" id="navbar">
-        <div class="logo">
-            <div class="logo-icon">📚</div>
-            <span class="logo-text">CAPS</span>
-        </div>
-        <div class="nav-links">
-            <a href="#home">Home</a>
-            <a href="#features">Features</a>
-            <a href="#screenshots">Screenshots</a>
-            <a href="#guide">Guide</a>
-            <a href="#download">Download</a>
-        </div>
-        <a href="#download" class="download-btn-nav">Download APK</a>
-    </nav>
+    <!-- Desktop Wrapper -->
+    <div class="desktop-wrapper">
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-content">
-            <span class="hero-badge">✨ Official Student Portal</span>
-            <h1>
-                Your Academic Journey<br>
-                Starts <span class="gradient-text">Here</span>
-            </h1>
-            <p class="hero-description">
-                CAPS is the ultimate student management system for BASUG/SAZU students. 
-                Access results, track CGPA, connect with staff, and manage your academic life—all in one place.
-            </p>
-            <div class="download-buttons">
-                <a href="caps.apk" class="btn-primary" download>
-                    <i class="fas fa-download"></i> Download APK
-                </a>
-                <a href="#features" class="btn-secondary">
-                    <i class="fas fa-play"></i> Explore Features
-                </a>
+        <!-- Navigation -->
+        <nav class="navbar" id="navbar">
+            <div class="logo">
+                <div class="logo-icon">📚</div>
+                <span class="logo-text">CAPS</span>
             </div>
-            <div class="hero-stats">
-                <div class="stat">
-                    <div class="stat-number">15+</div>
-                    <div class="stat-label">Features</div>
+            <div class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#features">Features</a>
+                <a href="#screenshots">Screenshots</a>
+                <a href="#guide">Guide</a>
+                <a href="#download">Download</a>
+            </div>
+            <a href="#download" class="download-btn-nav">Download APK</a>
+        </nav>
+
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <span class="hero-badge">✨ Official Student Portal</span>
+                <h1>
+                    Your Academic Journey<br>
+                    Starts <span class="gradient-text">Here</span>
+                </h1>
+                <p class="hero-description">
+                    CAPS is the ultimate student management system for BASUG/SAZU students. 
+                    Access results, track CGPA, connect with staff, and manage your academic life—all in one place.
+                </p>
+                <div class="download-buttons">
+                    <a href="caps.apk" class="btn-primary" download>
+                        <i class="fas fa-download"></i> Download APK
+                    </a>
+                    <a href="#features" class="btn-secondary">
+                        <i class="fas fa-play"></i> Explore Features
+                    </a>
                 </div>
-                <div class="stat">
-                    <div class="stat-number">10K+</div>
-                    <div class="stat-label">Students</div>
-                </div>
-                <div class="stat">
-                    <div class="stat-number">24/7</div>
-                    <div class="stat-label">Access</div>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <div class="stat-number">15+</div>
+                        <div class="stat-label">Features</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">10K+</div>
+                        <div class="stat-label">Students</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">24/7</div>
+                        <div class="stat-label">Access</div>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="hero-image">
-            <div class="phone-mockup">
-                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 800'%3E%3Crect width='400' height='800' rx='45' fill='%231E293B'/%3E%3Crect x='15' y='15' width='370' height='770' rx='35' fill='%230F172A'/%3E%3Ccircle cx='200' cy='55' r='12' fill='%233B82F6'/%3E%3Crect x='60' y='90' width='280' height='40' rx='10' fill='%233B82F6'/%3E%3Crect x='60' y='150' width='280' height='200' rx='15' fill='%231E293B'/%3E%3C/svg%3E" alt="Phone Mockup" class="phone-screen">
-                <div class="floating-icon floating-icon-1">
-                    <i class="fas fa-chart-line" style="color: #3B82F6; font-size: 20px;"></i>
-                </div>
-                <div class="floating-icon floating-icon-2">
-                    <i class="fas fa-graduation-cap" style="color: #8B5CF6; font-size: 20px;"></i>
-                </div>
-                <div class="floating-icon floating-icon-3">
-                    <i class="fas fa-file-pdf" style="color: #EC4899; font-size: 20px;"></i>
+            <div class="hero-image">
+                <div class="phone-mockup">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 800'%3E%3Crect width='400' height='800' rx='45' fill='%231E293B'/%3E%3Crect x='15' y='15' width='370' height='770' rx='35' fill='%230F172A'/%3E%3Ccircle cx='200' cy='55' r='12' fill='%233B82F6'/%3E%3Crect x='60' y='90' width='280' height='40' rx='10' fill='%233B82F6'/%3E%3Crect x='60' y='150' width='280' height='200' rx='15' fill='%231E293B'/%3E%3C/svg%3E" alt="Phone Mockup" class="phone-screen">
+                    <div class="floating-icon floating-icon-1">
+                        <i class="fas fa-chart-line" style="color: #3B82F6; font-size: 20px;"></i>
+                    </div>
+                    <div class="floating-icon floating-icon-2">
+                        <i class="fas fa-graduation-cap" style="color: #8B5CF6; font-size: 20px;"></i>
+                    </div>
+                    <div class="floating-icon floating-icon-3">
+                        <i class="fas fa-file-pdf" style="color: #EC4899; font-size: 20px;"></i>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
         <!-- Admin Card Section -->
-    <section class="admin-section">
-        <div class="admin-card">
-            <div class="admin-avatar">
-                <!-- Replace 'admin_profile.jpg' with your actual image file name -->
-                <img src="admin_profile.jpg" alt="Sam" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 100 100\'%3E%3Ccircle cx=\'50\' cy=\'50\' r=\'50\' fill=\'%233B82F6\'/%3E%3Ctext x=\'50\' y=\'70\' text-anchor=\'middle\' fill=\'white\' font-size=\'40\' font-family=\'Arial\'%3ES%3C/text%3E%3C/svg%3E'">
-            </div>
-            <div class="admin-name">Sam</div>
-            <div class="admin-title">🎓 Student Developer</div>
-            <div class="admin-bio">Sa'adu Zungur University, Bauchi State</div>
-            <div class="admin-bio">"Building solutions for fellow students"</div>
-            <div class="admin-social">
-                <a href="https://wa.me/2347017430441"><i class="fab fa-whatsapp"></i></a>
-                <a href="mailto:sam@caps.com"><i class="fas fa-envelope"></i></a>
-                <a href="#"><i class="fab fa-github"></i></a>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Features Section -->
-    <section id="features" class="features">
-        <h2 class="section-title">Powerful <span class="gradient-text">Features</span></h2>
-        <p class="section-subtitle">Everything you need to manage your academic life</p>
-        
-        <div class="features-grid">
-            <div class="feature-card">
-                <div class="feature-icon"><i class="fas fa-chart-simple"></i></div>
-                <h3>CGPA Tracker</h3>
-                <p>Real-time CGPA tracking with trend analysis and graduation prediction.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon"><i class="fas fa-receipt"></i></div>
-                <h3>Results & Grades</h3>
-                <p>View all semester results, generate PDF reports, and analyze grade distribution.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon"><i class="fas fa-magnifying-glass"></i></div>
-                <h3>Student Search</h3>
-                <p>Fast multi-threaded search by faculty, department, location, or keyword.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon"><i class="fas fa-address-card"></i></div>
-                <h3>Staff Directory</h3>
-                <p>Complete university staff directory with direct contact options.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon"><i class="fas fa-file-pdf"></i></div>
-                <h3>PDF Reports</h3>
-                <p>Generate and share professional PDF reports of your results.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon"><i class="fas fa-shield-alt"></i></div>
-                <h3>Secure Login</h3>
-                <p>Bank-level security with auto-login and session management.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon"><i class="fas fa-phone-alt"></i></div>
-                <h3>Contact Finder</h3>
-                <p>Find student contacts and connect via call, WhatsApp, or email.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon"><i class="fas fa-chalkboard-user"></i></div>
-                <h3>University Info</h3>
-                <p>Campus locations, faculties, departments, and leadership information.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon"><i class="fas fa-moon"></i></div>
-                <h3>Dark Mode</h3>
-                <p>Beautiful light and dark themes for comfortable viewing.</p>
-            </div>
-        </div>
-    </section>
-
-
-
-    <!-- Screenshots Section - 4 Screenshots -->
-    <section id="screenshots" class="screenshots">
-        <h2 class="section-title">App <span class="gradient-text">Screenshots</span></h2>
-        <p class="section-subtitle">See CAPS in action</p>
-        
-        <div class="screenshot-grid">
-            <!-- Screenshot 1 - Dashboard -->
-            <div class="screenshot-card">
-                <div class="screenshot-img">
-                    <img src="screenshot_dashboard.jpg" alt="Dashboard Screenshot" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 200 350\'%3E%3Crect width=\'200\' height=\'350\' fill=\'%231E293B\' rx=\'20\'/%3E%3Ctext x=\'100\' y=\'170\' text-anchor=\'middle\' fill=\'%233B82F6\' font-size=\'14\'%3EDashboard%3C/text%3E%3C/svg%3E'">
+        <section class="admin-section">
+            <div class="admin-card">
+                <div class="admin-avatar">
+                    <img src="admin_profile.jpg" alt="Sam" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 100 100\'%3E%3Ccircle cx=\'50\' cy=\'50\' r=\'50\' fill=\'%233B82F6\'/%3E%3Ctext x=\'50\' y=\'70\' text-anchor=\'middle\' fill=\'white\' font-size=\'40\' font-family=\'Arial\'%3ES%3C/text%3E%3C/svg%3E'">
                 </div>
-                <h4>📊 Dashboard</h4>
-                <p>CGPA Overview • Stats • Quick Access</p>
-            </div>
-            <!-- Screenshot 2 - Results -->
-            <div class="screenshot-card">
-                <div class="screenshot-img">
-                    <img src="screenshot_results.jpg" alt="Results Screenshot" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 200 350\'%3E%3Crect width=\'200\' height=\'350\' fill=\'%231E293B\' rx=\'20\'/%3E%3Ctext x=\'100\' y=\'170\' text-anchor=\'middle\' fill=\'%233B82F6\' font-size=\'14\'%3EResults%3C/text%3E%3C/svg%3E'">
+                <div class="admin-name">Sam</div>
+                <div class="admin-title">🎓 Student Developer</div>
+                <div class="admin-bio">Sa'adu Zungur University, Bauchi State</div>
+                <div class="admin-bio">"Building solutions for fellow students"</div>
+                <div class="admin-social">
+                    <a href="https://wa.me/2347017430441"><i class="fab fa-whatsapp"></i></a>
+                    <a href="mailto:sam@caps.com"><i class="fas fa-envelope"></i></a>
+                    <a href="#"><i class="fab fa-github"></i></a>
                 </div>
-                <h4>📚 Results</h4>
-                <p>Semester Results • PDF Export • Grade Analysis</p>
             </div>
-            <!-- Screenshot 3 - Grades -->
-            <div class="screenshot-card">
-                <div class="screenshot-img">
-                    <img src="screenshot_grades.jpg" alt="Grades Screenshot" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 200 350\'%3E%3Crect width=\'200\' height=\'350\' fill=\'%231E293B\' rx=\'20\'/%3E%3Ctext x=\'100\' y=\'170\' text-anchor=\'middle\' fill=\'%233B82F6\' font-size=\'14\'%3EGrades%3C/text%3E%3C/svg%3E'">
+        </section>
+
+        <!-- Features Section -->
+        <section id="features" class="features">
+            <h2 class="section-title">Powerful <span class="gradient-text">Features</span></h2>
+            <p class="section-subtitle">Everything you need to manage your academic life</p>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-chart-simple"></i></div>
+                    <h3>CGPA Tracker</h3>
+                    <p>Real-time CGPA tracking with trend analysis and graduation prediction.</p>
                 </div>
-                <h4>📈 Grades</h4>
-                <p>CGPA Chart • Grade Distribution • Carry Overs</p>
-            </div>
-            <!-- Screenshot 4 - Search -->
-            <div class="screenshot-card">
-                <div class="screenshot-img">
-                    <img src="screenshot_search.jpg" alt="Search Screenshot" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 200 350\'%3E%3Crect width=\'200\' height=\'350\' fill=\'%231E293B\' rx=\'20\'/%3E%3Ctext x=\'100\' y=\'170\' text-anchor=\'middle\' fill=\'%233B82F6\' font-size=\'14\'%3ESearch%3C/text%3E%3C/svg%3E'">
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-receipt"></i></div>
+                    <h3>Results & Grades</h3>
+                    <p>View all semester results, generate PDF reports, and analyze grade distribution.</p>
                 </div>
-                <h4>🔍 Search Data</h4>
-                <p>Multi-threaded Search • Filters • Gallery View</p>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-magnifying-glass"></i></div>
+                    <h3>Student Search</h3>
+                    <p>Fast multi-threaded search by faculty, department, location, or keyword.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-address-card"></i></div>
+                    <h3>Staff Directory</h3>
+                    <p>Complete university staff directory with direct contact options.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-file-pdf"></i></div>
+                    <h3>PDF Reports</h3>
+                    <p>Generate and share professional PDF reports of your results.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-shield-alt"></i></div>
+                    <h3>Secure Login</h3>
+                    <p>Bank-level security with auto-login and session management.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-phone-alt"></i></div>
+                    <h3>Contact Finder</h3>
+                    <p>Find student contacts and connect via call, WhatsApp, or email.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-chalkboard-user"></i></div>
+                    <h3>University Info</h3>
+                    <p>Campus locations, faculties, departments, and leadership information.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-moon"></i></div>
+                    <h3>Dark Mode</h3>
+                    <p>Beautiful light and dark themes for comfortable viewing.</p>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- User Guide Section -->
-    <section id="guide" class="guide-section">
-        <h2 class="section-title">User <span class="gradient-text">Guide</span></h2>
-        <p class="section-subtitle">Everything you need to know about using CAPS</p>
-        
-        <div class="guide-grid">
-            <div class="guide-card">
-                <div class="guide-icon"><i class="fas fa-rocket"></i></div>
-                <h3>Getting Started</h3>
-                <ul class="guide-list">
-                    <li><i class="fas fa-download"></i> Download and install CAPS.apk</li>
-                    <li><i class="fas fa-sign-in-alt"></i> Login with your Matric Number and Password</li>
-                    <li><i class="fas fa-chart-line"></i> View your CGPA on the dashboard</li>
-                    <li><i class="fas fa-moon"></i> Toggle Dark/Light theme using the theme button</li>
-                </ul>
-            </div>
+        <!-- Screenshots Section -->
+        <section id="screenshots" class="screenshots">
+            <h2 class="section-title">App <span class="gradient-text">Screenshots</span></h2>
+            <p class="section-subtitle">See CAPS in action</p>
             
-            <div class="guide-card">
-                <div class="guide-icon"><i class="fas fa-graduation-cap"></i></div>
-                <h3>Results & Grades</h3>
-                <ul class="guide-list">
-                    <li><i class="fas fa-receipt"></i> Click "Results" to view all semester results</li>
-                    <li><i class="fas fa-filter"></i> Filter by Level (100L-400L) and Semester</li>
-                    <li><i class="fas fa-file-pdf"></i> Generate PDF reports of your results</li>
-                    <li><i class="fas fa-chart-pie"></i> View grade distribution in "Grades" section</li>
-                </ul>
+            <div class="screenshot-grid">
+                <div class="screenshot-card">
+                    <div class="screenshot-img">
+                        <img src="screenshot_dashboard.jpg" alt="Dashboard" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 200 350\'%3E%3Crect width=\'200\' height=\'350\' fill=\'%231E293B\' rx=\'20\'/%3E%3Ctext x=\'100\' y=\'170\' text-anchor=\'middle\' fill=\'%233B82F6\' font-size=\'14\'%3EDashboard%3C/text%3E%3C/svg%3E'">
+                    </div>
+                    <h4>📊 Dashboard</h4>
+                    <p>CGPA Overview • Stats • Quick Access</p>
+                </div>
+                <div class="screenshot-card">
+                    <div class="screenshot-img">
+                        <img src="screenshot_results.jpg" alt="Results" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 200 350\'%3E%3Crect width=\'200\' height=\'350\' fill=\'%231E293B\' rx=\'20\'/%3E%3Ctext x=\'100\' y=\'170\' text-anchor=\'middle\' fill=\'%233B82F6\' font-size=\'14\'%3EResults%3C/text%3E%3C/svg%3E'">
+                    </div>
+                    <h4>📚 Results</h4>
+                    <p>Semester Results • PDF Export • Grade Analysis</p>
+                </div>
+                <div class="screenshot-card">
+                    <div class="screenshot-img">
+                        <img src="screenshot_grades.jpg" alt="Grades" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 200 350\'%3E%3Crect width=\'200\' height=\'350\' fill=\'%231E293B\' rx=\'20\'/%3E%3Ctext x=\'100\' y=\'170\' text-anchor=\'middle\' fill=\'%233B82F6\' font-size=\'14\'%3EGrades%3C/text%3E%3C/svg%3E'">
+                    </div>
+                    <h4>📈 Grades</h4>
+                    <p>CGPA Chart • Grade Distribution • Carry Overs</p>
+                </div>
+                <div class="screenshot-card">
+                    <div class="screenshot-img">
+                        <img src="screenshot_search.jpg" alt="Search" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 200 350\'%3E%3Crect width=\'200\' height=\'350\' fill=\'%231E293B\' rx=\'20\'/%3E%3Ctext x=\'100\' y=\'170\' text-anchor=\'middle\' fill=\'%233B82F6\' font-size=\'14\'%3ESearch%3C/text%3E%3C/svg%3E'">
+                    </div>
+                    <h4>🔍 Search Data</h4>
+                    <p>Multi-threaded Search • Filters • Gallery View</p>
+                </div>
             </div>
-            
-            <div class="guide-card">
-                <div class="guide-icon"><i class="fas fa-search"></i></div>
-                <h3>Student Search</h3>
-                <ul class="guide-list">
-                    <li><i class="fas fa-school"></i> Search by Faculty or Department</li>
-                    <li><i class="fas fa-map-marker-alt"></i> Search by State or LGA of origin</li>
-                    <li><i class="fas fa-venus-mars"></i> Filter by Gender (Male/Female)</li>
-                    <li><i class="fas fa-keyboard"></i> Comprehensive keyword search</li>
-                </ul>
-            </div>
-            
-            <div class="guide-card">
-                <div class="guide-icon"><i class="fas fa-address-book"></i></div>
-                <h3>Contacts & Staff</h3>
-                <ul class="guide-list">
-                    <li><i class="fas fa-phone-alt"></i> Find student contact information</li>
-                    <li><i class="fab fa-whatsapp"></i> Direct WhatsApp messaging</li>
-                    <li><i class="fas fa-chalkboard-user"></i> View Staff Directory (VC, Deans, HODs)</li>
-                    <li><i class="fas fa-envelope"></i> Send emails directly from the app</li>
-                </ul>
-            </div>
-            
-            <div class="guide-card">
-                <div class="guide-icon"><i class="fas fa-file-export"></i></div>
-                <h3>Data Extraction</h3>
-                <ul class="guide-list">
-                    <li><i class="fas fa-table"></i> Extract valid student IDs by department</li>
-                    <li><i class="fas fa-calendar"></i> Select year of entry and number range</li>
-                    <li><i class="fas fa-file-pdf"></i> Generate professional PDF reports</li>
-                    <li><i class="fas fa-share-alt"></i> Share extraction results</li>
-                </ul>
-            </div>
-            
-            <div class="guide-card">
-                <div class="guide-icon"><i class="fas fa-question-circle"></i></div>
-                <h3>Need Help?</h3>
-                <ul class="guide-list">
-                    <li><i class="fas fa-life-ring"></i> Tap the help button (?) in the app</li>
-                    <li><i class="fab fa-whatsapp"></i> Contact support via WhatsApp: +234 701 743 0441</li>
-                    <li><i class="fas fa-envelope"></i> Email: sam@caps.com</li>
-                    <li><i class="fas fa-university"></i> Visit ICT department for password reset</li>
-                </ul>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Download Section -->
-    <section id="download" class="download-section">
-        <div class="download-card">
-            <h2>Ready to <span class="gradient-text">Download?</span></h2>
-            <p>Get the CAPS app now and take control of your academic journey.</p>
+        <!-- User Guide Section -->
+        <section id="guide" class="guide-section">
+            <h2 class="section-title">User <span class="gradient-text">Guide</span></h2>
+            <p class="section-subtitle">Everything you need to know about using CAPS</p>
             
-            <div class="download-info">
-                <div class="info-item"><i class="fas fa-hdd"></i> ~45 MB</div>
-                <div class="info-item"><i class="fab fa-android"></i> Android 5.0+</div>
-                <div class="info-item"><i class="fas fa-code-branch"></i> Version 1.0.1</div>
+            <div class="guide-grid">
+                <div class="guide-card">
+                    <div class="guide-icon"><i class="fas fa-rocket"></i></div>
+                    <h3>Getting Started</h3>
+                    <ul class="guide-list">
+                        <li><i class="fas fa-download"></i> Download and install CAPS.apk</li>
+                        <li><i class="fas fa-sign-in-alt"></i> Login with your Matric Number and Password</li>
+                        <li><i class="fas fa-chart-line"></i> View your CGPA on the dashboard</li>
+                        <li><i class="fas fa-moon"></i> Toggle Dark/Light theme using the theme button</li>
+                    </ul>
+                </div>
+                
+                <div class="guide-card">
+                    <div class="guide-icon"><i class="fas fa-graduation-cap"></i></div>
+                    <h3>Results & Grades</h3>
+                    <ul class="guide-list">
+                        <li><i class="fas fa-receipt"></i> Click "Results" to view all semester results</li>
+                        <li><i class="fas fa-filter"></i> Filter by Level (100L-400L) and Semester</li>
+                        <li><i class="fas fa-file-pdf"></i> Generate PDF reports of your results</li>
+                        <li><i class="fas fa-chart-pie"></i> View grade distribution in "Grades" section</li>
+                    </ul>
+                </div>
+                
+                <div class="guide-card">
+                    <div class="guide-icon"><i class="fas fa-search"></i></div>
+                    <h3>Student Search</h3>
+                    <ul class="guide-list">
+                        <li><i class="fas fa-school"></i> Search by Faculty or Department</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Search by State or LGA of origin</li>
+                        <li><i class="fas fa-venus-mars"></i> Filter by Gender (Male/Female)</li>
+                        <li><i class="fas fa-keyboard"></i> Comprehensive keyword search</li>
+                    </ul>
+                </div>
+                
+                <div class="guide-card">
+                    <div class="guide-icon"><i class="fas fa-address-book"></i></div>
+                    <h3>Contacts & Staff</h3>
+                    <ul class="guide-list">
+                        <li><i class="fas fa-phone-alt"></i> Find student contact information</li>
+                        <li><i class="fab fa-whatsapp"></i> Direct WhatsApp messaging</li>
+                        <li><i class="fas fa-chalkboard-user"></i> View Staff Directory (VC, Deans, HODs)</li>
+                        <li><i class="fas fa-envelope"></i> Send emails directly from the app</li>
+                    </ul>
+                </div>
+                
+                <div class="guide-card">
+                    <div class="guide-icon"><i class="fas fa-file-export"></i></div>
+                    <h3>Data Extraction</h3>
+                    <ul class="guide-list">
+                        <li><i class="fas fa-table"></i> Extract valid student IDs by department</li>
+                        <li><i class="fas fa-calendar"></i> Select year of entry and number range</li>
+                        <li><i class="fas fa-file-pdf"></i> Generate professional PDF reports</li>
+                        <li><i class="fas fa-share-alt"></i> Share extraction results</li>
+                    </ul>
+                </div>
+                
+                <div class="guide-card">
+                    <div class="guide-icon"><i class="fas fa-question-circle"></i></div>
+                    <h3>Need Help?</h3>
+                    <ul class="guide-list">
+                        <li><i class="fas fa-life-ring"></i> Tap the help button (?) in the app</li>
+                        <li><i class="fab fa-whatsapp"></i> Contact support via WhatsApp: +234 701 743 0441</li>
+                        <li><i class="fas fa-envelope"></i> Email: sam@caps.com</li>
+                        <li><i class="fas fa-university"></i> Visit ICT department for password reset</li>
+                    </ul>
+                </div>
             </div>
-            
-            <div class="qr-code">
-                <i class="fas fa-qrcode" style="font-size: 70px; color: #000;"></i>
-            </div>
-            
-            <a href="caps.apk" class="btn-primary btn-large" download>
-                <i class="fas fa-download"></i> Download CAPS.apk
-            </a>
-            
-            <div class="version-badge">
-                <i class="fas fa-check-circle"></i> Latest Version
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="copyright">
-            © 2025 CAPS - Student Management System | Created by Sam
-        </div>
-        <div class="footer-links">
-            <a href="#">Privacy Policy</a>
-            <a href="#">Terms of Service</a>
-            <a href="#guide">User Guide</a>
-            <a href="mailto:sam@caps.com"><i class="fas fa-envelope"></i> sam@caps.com</a>
-            <a href="https://wa.me/2347017430441"><i class="fab fa-whatsapp"></i> WhatsApp</a>
-        </div>
-        <div class="social-icons">
-            <a href="#"><i class="fab fa-twitter"></i></a>
-            <a href="#"><i class="fab fa-instagram"></i></a>
-            <a href="#"><i class="fab fa-facebook"></i></a>
-        </div>
-    </footer>
+        <!-- Download Section -->
+        <section id="download" class="download-section">
+            <div class="download-card">
+                <h2>Ready to <span class="gradient-text">Download?</span></h2>
+                <p>Get the CAPS app now and take control of your academic journey.</p>
+                
+                <div class="download-info">
+                    <div class="info-item"><i class="fas fa-hdd"></i> ~45 MB</div>
+                    <div class="info-item"><i class="fab fa-android"></i> Android 5.0+</div>
+                    <div class="info-item"><i class="fas fa-code-branch"></i> Version 1.0.1</div>
+                </div>
+                
+                <div class="qr-code">
+                    <i class="fas fa-qrcode" style="font-size: 70px; color: #000;"></i>
+                </div>
+                
+                <a href="caps.apk" class="btn-primary btn-large" download>
+                    <i class="fas fa-download"></i> Download CAPS.apk
+                </a>
+                
+                <div class="version-badge">
+                    <i class="fas fa-check-circle"></i> Latest Version
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="copyright">
+                © 2025 CAPS - Student Management System | Created by Sam
+            </div>
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#guide">User Guide</a>
+                <a href="mailto:sam@caps.com"><i class="fas fa-envelope"></i> sam@caps.com</a>
+                <a href="https://wa.me/2347017430441"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+            </div>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-facebook"></i></a>
+            </div>
+        </footer>
+
+    </div>
 
     <script>
         // Hide loading screen
